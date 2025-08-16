@@ -1,0 +1,18 @@
+{
+  "version": "wsir-0.3.2",
+  "rng": {"physics_noise": 123, "sensor_noise": 7, "actuator_noise": 5},
+  "physics": {"g":[0,-9.81,0], "dt":0.01, "restitution":0.28, "fluid_viscosity":1.0e-3},
+  "objects":[
+    {"id":"sink","mesh":"rect_basin","mat":"ceramic","afford":["container"],"pose":[0,0,0]},
+    {"id":"faucet","type":"spout","mat":"steel","afford":["spout"],"pose":[0,0.5,0]},
+    {"id":"key","mesh":"flat_key","mat":"brass","afford":["graspable"],"pose":[0.1,0.9,0]}
+  ],
+  "constraints":[{"type":"attach","a":"faucet","b":"sink"}],
+  "sensors":[{"id":"rgb_cam","pose":[-1,1,1]}],
+  "actuators":[{"id":"hand","dofs":6}],
+  "invariants":{
+    "flow_rate_bounds_lps":[1.9,2.3],
+    "drain_time_s_max":120.0,
+    "penetration_mm_max":0.5
+  }
+}
