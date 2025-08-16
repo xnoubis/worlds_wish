@@ -1,19 +1,3 @@
-# worlds_wish
-
-import os, json, textwrap, zipfile, pathlib, hashlib
-
-base = "/mnt/data/worlds_wish_starter"
-os.makedirs(base, exist_ok=True)
-
-def write(path, content):
-    p = pathlib.Path(base) / path
-    p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(textwrap.dedent(content).lstrip(), encoding="utf-8")
-
-# README
-write("README.md", """
-# worlds_wish (starter scaffold)
-
 Minimal scaffold for the "World's Wish" fixed-point architecture:
 - **WS-IR** (World Spec intermediate representation) + invariants + content hash
 - **Deterministic Simulator** with named RNG ledger (stub)
